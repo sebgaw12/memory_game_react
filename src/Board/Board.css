@@ -1,0 +1,23 @@
+
+.tile {
+    width: 200px;
+    height: 200px;
+    font-size: 64pt;
+    border: 2px solid #aaa;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    /*float: left;*/
+    cursor: pointer;
+    display: inline-block;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* This will create 3 equal columns */
+    gap: 10px; /* Optional: spacing between the cards */
+}
+
+.card {
+    /* You don't need to set width here, grid will handle the layout */
+}
