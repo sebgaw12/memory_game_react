@@ -1,5 +1,5 @@
 import './Board.css';
-import { Component } from 'react';
+import {Component} from 'react';
 
 /* const Card = (props) => <div class='tile'><p>{props.value}</p></div>; */
 
@@ -14,7 +14,7 @@ class Card extends Component {
 
     render() {
         return (
-            <div class='tile'><p>{this.props.value}</p></div>
+            <div className='tile'><p>{this.props.value}</p></div>
         )
     }
 }
