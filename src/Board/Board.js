@@ -8,7 +8,6 @@ class Board extends Component {
         this.state = {
             cards: []
         }
-
     }
 
     randomizeCards() {
@@ -26,22 +25,7 @@ class Board extends Component {
         let numbers = Array.from({length: pairs * maxCount}, getRandomNumbersInArray());
         let tab = [];
 
-        while (tab.length < pairs * maxCount) {
-            const randomIndex = Math.floor(Math.random() * numbers.length)
-            const number = numbers[randomIndex]
-
-
-            const count = countInArray(tab, number)
-
-            if (count < maxCount) {
-                tab.push(number)
-            }
-
-
-            if (count === maxCount) {
-                numbers.splice(randomIndex, 1)
-            }
-        }
+        this.addNumbersToTab(tab, pairs, maxCount, numbers, countInArray);
         // for(let i = 0; i < 12; i++)
         // {
         //     tab.push(this.randomInteger(0, 5));
@@ -49,6 +33,22 @@ class Board extends Component {
         return tab;
     }
 
+    addNumbersToTab(arr, pairs, maxCount, numbers, countInArray) {
+        while (arr.length < pairs * maxCount) {
+            const randomIndex = Math.floor(Math.random() * numbers.length)
+            const number = numbers[randomIndex]
+
+            const count = countInArray(arr, number)
+
+            if (count < maxCount) {
+                arr.push(number)
+            }
+
+            if (count === maxCount) {
+                numbers.splice(randomIndex, 1)
+            }
+        }
+    }
 
     componentDidMount() {
         let cards = this.randomizeCards();
